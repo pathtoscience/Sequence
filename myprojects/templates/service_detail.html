@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Service | {% endblock %} 
+{% block page_content %}
+<br>
+<br>
+<h2 style="margin-left: 15%;">{{ service.title }}</h2>
+<br>
+<div class="row">
+    <div class="col-md-8">
+        <img src="{{ service.image.url }}" alt="" width="100%">
+    </div>
+    <div class="col-md-4">
+        <h5>About This Projet:</h5>
+        <p>{{ service.description }}</p>
+    </div>
+</div>
+{% endblock %}

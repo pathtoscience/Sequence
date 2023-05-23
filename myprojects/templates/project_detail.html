@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Project | {% endblock %} 
+
+{% block page_content %}
+<br>
+<section class="blog-posts">
+   <div class="container">
+       <div class="columns">
+           <div class="column is-10 is-offset-1">
+                <div class="columns featured-post is-multiline">
+                    <div class="column is-12 post ">
+                        <article class="columns featured">
+                            <div class="column is-7 post-img">
+                                <img src="{{ project.image.url }}" alt="" >
+                            </div>
+                            <div class="column is-5 featured-content va">
+                                <div>
+                                    <h3 class="title post-title">{{ project.title }}</h3>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h5>About This Projet:</h5>
+                                            <p class="post-excerpt">{{ project.description }}</p>
+                                            <br>
+                                            <h5>Technology used: </h5>
+                                            <p class="post-excerpt">{{ project.technology }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+           </div>
+       </div>
+   </div>
+</section>
+
+{% endblock %}

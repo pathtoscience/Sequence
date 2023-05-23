@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+   	
+	
+ <!--div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+				<div class="d-flex justify-content-center">
+					<h3 id="form-title">Be part of us</h3>
+				</div>
+				<div class="d-flex justify-content-center form_container">
+
+					<form method="POST" action="">
+                        {% csrf_token %}
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							{{ form.username }}
+						</div>
+                        <br>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+							</div>
+							{{ form.email }}
+						</div>
+                        <br>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fa fa-phone"></i></span>
+							</div>
+							{{ form.phone }}
+						</div>
+						<br>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							{{ form.password1 }}
+						</div>
+                        <br>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							{{ form.password2 }}
+						</div>
+
+				   		<div class="d-flex justify-content-center mt-3 login_container">
+				 			<input class="btn login_btn" type="submit" value="Sign up">
+				   		</div>
+					</form>
+				</div>
+				<span style='color:azure'>{{ form.errors }}</span>
+				
+				<div class="mt-4">
+					<div class="d-flex justify-content-center links " style="color: #fff;">
+					<p style="color :#fff">Already Have an account? <a href="{% url 'login' %}" style="color :#fff">login</a> </p>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		//Query All input fields
+		var form_fields = document.getElementsByTagName('input')
+		form_fields[1].placeholder='Nom Utiisateur..';
+		form_fields[2].placeholder='Email..';
+		form_fields[3].placeholder='Votre password...';
+		form_fields[4].placeholder='Password Encore...';
+
+		for (var field in form_fields){	
+			form_fields[field].className += ' form-control'
+		}
+	</script-->
+
+<style>
+	.imag{
+		background-image: url('/media/media/bgd.jpeg')
+	}
+</style>
+<section class="hero is-info is-fullheight imag">
+
+	<div class="hero-body">
+		<div class="container">
+
+			<div class="columns is-centered">
+				<div class="column is-two-fifths">
+					<form method="POST" action="">
+                        {% csrf_token %}
+						<div class="field">
+							<label class="label">Nom d'utilisateur</label>
+							<div class="control">
+								<input class="input" placeholder="Votre Nom d'utilisateur" id="username"
+								name="username" required>
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Email</label>
+							<div class="control">
+								<input class="input" placeholder="Votre Email" id="email"
+								name="email" required>
+							</div>
+						</div>
+						<div class="field">
+							<label class="label">Telephone</label>
+							<div class="control">
+								<input class="input" placeholder="Number Phone" id="phone"
+								name="phone" required>
+							</div>
+						</div>
+						<div class="input-group mb-2">
+							<label class="label">Mot de passe</label>
+							<div class="control">
+								<input class="input" type="password"  placeholder="Password" id="password1"
+								name="password1" required>
+							</div>
+							
+						</div>
+						<div class="input-group mb-2">
+							<label class="label">Mot de passe à nouveau</label>
+							<div class="control">
+								<input class="input" type="password"  placeholder="Password" id="password2"
+								name="password2" required>
+							</div>		
+						</div>
+						<p class="mt-2">
+							<div>
+								<div class="control">
+									<button class="button is-success" type="submit">S'inscrire</button>
+								</div>
+							</div>
+						</p>
+					</form>
+					<span style='color:azure'>{{ form.errors }}</span>
+					<div class="mt-4">
+						<div class="d-flex justify-content-center links " style="color: #fff;">
+						<p style="color :#fff">Avez vous déjà un compte? <a href="{% url 'login' %}" class="tag is-white is-medium" >Connectez Vous</a> </p>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

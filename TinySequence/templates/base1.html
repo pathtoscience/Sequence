@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}{% endblock %} WELTX technologies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/15181efa86.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.9.1/css/OverlayScrollbars.min.css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+   
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/personal.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+   
+  </head>
+  <body>
+    <style>
+      #hello-msg {
+        font-size: 18px;
+        color: rgb(235, 194, 194);
+        margin-right: 20px;
+      }
+    </style>
+    <nav class="navbar is-white topNav">
+			<div class="container">
+				<div class="navbar-brand">
+					<a class="navbar-item" href="../">
+						<img src="{% static '/images/sequence.png' %}" width="50" height="50">
+						<strong> WELTX technologies </strong>
+					</a>
+					<div class="navbar-burger burger" data-target="topNav">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+				<div id="topNav" class="navbar-menu">
+					<div class="navbar-end">
+						<a class="navbar-item is-primary is-medium " href="{% url 'home' %}">Accueil</a>
+            <a class="navbar-item is-medium" href="{% url 'blog' %}"> Blog </a>
+						<a class="navbar-item is-medium" href="{% url 'aboutus' %}"> À Propos de nous </a>
+						<a class="navbar-item is-medium" href="{% url 'contact' %}"> Nous Contacter </a>
+            
+            {% if user.is_authenticated %}
+              <span class="navbar-item" id="hello-msg">Hello, {{request.user}} </span> 
+              {% else %}
+            {% endif %} 
+					</div>
+				</div>
+			</div>
+		</nav>
+    {% block page_content %} {% endblock %}
+    <footer class="footer" >
+      <div class="content has-text-centered">
+        <p>
+          Copyright ©<script>document.write(new Date().getFullYear());</script> All rights reserved | Designed 
+          <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://www.facebook.com/weltxtechnologies" target="_blank">Sequence.ai</a>
+          {% if user.is_authenticated %}
+           | <a href="{% url 'logout' %}" class="btn btn-outline-dark btn-rounded">Se Deconnecter</a> 
+              <!--a href="{% url 'password_change' %}">Changer de Mot de Passe</a-->
+          {% else %}
+            |<a href="{% url 'login' %}" class="btn btn-outline-dark btn-rounded">Se Connecter</a>
+          {% endif %}
+        </p>
+      </div>
+      </footer>
+      <script async type="text/javascript" src="{% static 'js/bulma.js' %}"></script>
+      
+    </body>
+  
+  </html>

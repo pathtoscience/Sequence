@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Home | {% endblock %} 
+
+{% block page_content %}
+<style>
+  h2{
+  text-align:center;
+  padding: 20px;
+  margin-left: 10px;
+}
+/* Slider */
+
+.slick-slide {
+    margin: 0px 20px;
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-slider
+{
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+            user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: block;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+</style>
+  <br>  
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-2">Nos Services</h2>
+        <hr>
+        <div class="mb-6 pb-3 columns is-multiline"> 
+        </div>
+        <div class="columns is-multiline">
+          <div class="column is-12 is-4-desktop">
+            <div class="mb-6 is-flex">
+              <span>
+              </span>
+              <div class="ml-3">
+                <h4 class="is-size-4 has-text-weight-bold mb-2">Site Web et Application Mobile</h4>
+                <p class="subtitle has-text-grey">Des specialistes en Développement Web et Mobile capables d'analyser les besoins des clients, préparer l’environnement de travail, concevoir,
+                   développer, tester et intégrer des sites web, des applications web et/ou mobiles.</p>
+              </div>
+            </div>
+            <div class="mb-6 is-flex">
+              <span>
+              </span>
+              <div class="ml-3">
+                <h4 class="is-size-4 has-text-weight-bold mb-2">Marcketing Digitale</h4>
+                  <p class="subtitle has-text-grey">Outils vital pour toute enprise aux dirigeants très au faite 
+                    de l'importance des TICs pour la croissance des entreprises.
+                  </p>
+              </div>
+            </div>
+          </div>
+          <div class="column is-4 is-block-desktop is-hidden-touch">
+            <img class="mx-auto mt-0-widescreen is-block image" src="{% static 'images/pho.png' %}"
+              alt="" width="250" height="100" style="margin-left:15%">
+          </div>
+          <div class="column is-12 is-4-desktop">
+            <div class="mb-6 is-flex">
+              <span>
+              </span>
+              <div class="ml-3">
+                <h4 class="is-size-4 has-text-weight-bold mb-2">Analyse et Traitement de Données</h4>
+                <p class="subtitle has-text-grey">Nos Data Analyst et Scintist sont près à aider à l'analyse et l’exploitation des informations ou Données recueillies par 
+                  le biais de différents canaux afin de faciliter les prises de décision au niveau des dirigeants. </p>
+              </div>
+            </div>
+            <div class="mb-6 is-flex">
+              <span>
+                <!--svg width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M25.6 22.9C25.7 23 25.8 23 26 23H33C33.6 23 34 22.6 34 22C34 21.8 34 21.7 33.9 21.6L30.4 14.6C30.1 14.1 29.5 13.9 29 14.2C28.9 14.3 28.7 14.4 28.6 14.6L25.1 21.6C24.9 22 25.1 22.6 25.6 22.9ZM29.5 17.2L31.4 21H27.6L29.5 17.2ZM18.5 14C16 14 14 16 14 18.5C14 21 16 23 18.5 23C21 23 23 21 23 18.5C23 16 21 14 18.5 14ZM18.5 21C17.1 21 16 19.9 16 18.5C16 17.1 17.1 16 18.5 16C19.9 16 21 17.1 21 18.5C21 19.9 19.9 21 18.5 21ZM22.7 25.3C22.3 24.9 21.7 24.9 21.3 25.3L18.5 28.1L15.7 25.3C15.3 24.9 14.7 24.9 14.3 25.3C13.9 25.7 13.9 26.3 14.3 26.7L17.1 29.5L14.3 32.3C13.9 32.7 13.9 33.3 14.3 33.7C14.7 34.1 15.3 34.1 15.7 33.7L18.5 30.9L21.3 33.7C21.7 34.1 22.3 34.1 22.7 33.7C23.1 33.3 23.1 32.7 22.7 32.3L19.9 29.5L22.7 26.7C23.1 26.3 23.1 25.7 22.7 25.3ZM33 25H26C25.4 25 25 25.4 25 26V33C25 33.6 25.4 34 26 34H33C33.6 34 34 33.6 34 33V26C34 25.4 33.6 25 33 25ZM32 32H27V27H32V32Z"
+                    fill="#00d1b2"></path>
+                  <circle cx="24" cy="24" r="23.5" stroke="#00d1b2"></circle>
+                </svg-->
+              </span>
+              <div class="ml-3">
+                <h4 class="is-size-4 has-text-weight-bold mb-2">Modelisation et Prediction</h4>
+                <p class="subtitle has-text-grey">Optimiser votre production et faites vous aider par les models de machine learning pour ameliorer votre production. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <section class="container">
+    <h2 class="title is-2">Projets en cours</h2>
+    <hr>
+    <div class="columns features">
+      {% for project in projects %}
+      <div class="column is-4">
+          <div class="card is-shady">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img class="card-img-top" src="{{ project.image.url }}">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="content">
+                    <h4 class="card-title">{{ project.title }}</h4>
+                    <p class="card-text">{{ project.description|safe|truncatewords:"10"|linebreaks }}</p>
+                    <a href="{% url 'project_detail' project.pk %}"
+                    class="btn btn-primary">
+                        Voir plus <i class="fas fa-plus-square"></i>
+                    </a>
+                </div>
+              </div>
+          </div>
+      </div> 
+      {% endfor %}  
+    </div>
+  </section>
+  <br>
+  <br>
+  <div class="container">
+    <h2 class="title is-2">Nos partners & clients</h2>
+     <section class="customer-logos slider">
+        <div class="slide"><img src="{% static 'images/bizicorp.jpeg' %}"></div>
+        <div class="slide"><img src="https://image.freepik.com/free-vector/blue-tech-logo_1103-822.jpg"></div>
+        <div class="slide"><img src="{% static 'images/bowel.jpeg' %}"></div>
+        <div class="slide"><img src="{% static 'images/kingcake.png' %}"></div>
+        <div class="slide"><img src="{% static 'images/281086558_104180505642577_369248454274438335_n.jpeg' %}"></div>
+        <div class="slide"><img src="{% static 'images/170098486_306845710862787_5868171961722453478_n.jpeg' %}"></div>
+        <div class="slide"><img src="{% static 'images/162054116_204512851471634_525619820819108627_n.jpeg' %}"></div>
+     </section>
+  </div>
+  <br>
+  <br>
+  <script>
+    $(document).ready(function(){
+    $('.customer-logos').slick({
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1500,
+        arrows: false,
+        dots: false,
+        pauseOnHover: false,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 4
+            }
+        }, {
+            breakpoint: 520,
+            settings: {
+                slidesToShow: 3
+            }
+        }]
+    });
+});
+  </script>
+  
+{% endblock %}
